@@ -7,6 +7,8 @@ import java.io.Writer;
 
 import robot4Java.command.Command;
 import robot4Java.command.CommandParser;
+import robot4Java.command.UnknownCommandException;
+import robot4Java.command.executor.UnknownCommandExecutor;
 
 public class Main {
 	private static final int DEFAULT_PORT_NUMBER = 9000;
@@ -27,8 +29,15 @@ public class Main {
 			@Override
 			public void onMessage(String msg, Writer out) throws IOException {
 				System.out.println("Got message: " + msg);
-				Command cmd = CommandParser.getCommand(msg);
+				Command cmd;
+				try{
+					cmd = CommandParser.getCommand(msg);
+				} catch(UnknownCommandException e){
+					cmd = new UnknownCommandExecutor();
+				}
+				
 				cmd.exec(robot,out);
+				out.write('\n');out.flush();
 			}
 		};
 		
