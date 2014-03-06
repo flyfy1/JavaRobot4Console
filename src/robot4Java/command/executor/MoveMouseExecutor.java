@@ -4,6 +4,7 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.concurrent.TimeUnit;
 
 import robot4Java.command.Command;
 import robot4Java.command.UnknownCommandException;
@@ -37,8 +38,14 @@ public class MoveMouseExecutor implements Command {
 		robot.mouseMove(x, y);
 		
 		switch(clickType){
-		case leftClick: robot.mousePress(InputEvent.BUTTON1_MASK);
-		case rightClick: robot.mousePress(InputEvent.BUTTON2_MASK);
+		case leftClick:
+			robot.mousePress(InputEvent.BUTTON1_MASK);
+			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			break;
+		case rightClick:
+			robot.mousePress(InputEvent.BUTTON2_MASK);
+			robot.mouseRelease(InputEvent.BUTTON2_MASK);
+			break;
 		}
 	}
 }
