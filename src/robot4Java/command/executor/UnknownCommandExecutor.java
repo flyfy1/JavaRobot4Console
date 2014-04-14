@@ -9,8 +9,8 @@ import robot4Java.command.Command;
 public class UnknownCommandExecutor implements Command {
 	private static String helpMessage = 
 		  "Commands:\n"
-		+ "screen_shot [save_path] [x y w h]: \n"
-		+ "\tTake screen schot, in the rectangle (x y w h), and save"
+		+ "screen_shot [save_path] [sx sy ex ey]: \n"
+		+ "\tTake screen schot, in the rectangle (sx sy ex ey), and save"
 		+ " to the save_path\n"
 		+ "\tIf the coordinates are not given, the screenshot of the "
 		+ "whole screen is taken\n\n"

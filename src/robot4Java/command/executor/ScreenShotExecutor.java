@@ -29,7 +29,9 @@ public class ScreenShotExecutor implements Command {
 
 	public ScreenShotExecutor(String savePath, int recLocs[]) {
 		this.savePath = savePath;
-		rect = new Rectangle(recLocs[0],recLocs[1],recLocs[2],recLocs[3]);
+		int width = recLocs[2] - recLocs[0],
+			height = recLocs[3] - recLocs[1];
+		rect = new Rectangle(recLocs[0], recLocs[1], width, height);
 	}
 
 	@Override

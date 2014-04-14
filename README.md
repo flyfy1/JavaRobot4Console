@@ -11,3 +11,15 @@ connect to this port number.
 Note about the following:
 - Because it's controller the mouse, only one connection is allowed at one time
 - Only local connection is accetped due to security reasons.
+
+Commands:
+
+    screen_shot [file_path] ([sx] [sy] [ex] [ey]):
+      take screenshot of rectangle [(sx,sy),(ex,ey)], and save the image to the
+      [file_path] given. If [(sx,sy),(ex,ey)] is not given, then the screenshot
+      of the whole screen would be taken.
+
+    move_mouse [x] [y] [-l]:
+      move mouse to the (x, y) location. If the [-l] is given, then a left-click
+      would be performed.
+
